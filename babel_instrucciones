@@ -1,0 +1,61 @@
+1. Ver si está instalado
+node --version
+2. Ver si está instalado
+npm --version
+3.
+npm init
+4.Este crea: node_modules y package-lock.json (https://babeljs.io/docs/en/usage)
+npm install --save-dev @babel/core @babel/cli @babel/preset-env
+5.Crear este archivo 
+.gitignore 
+5.1 ...y escribir en el interior:
+/node_modules/ 
+6. si se remueve node_modules:
+rm -r node_modules/
+7. ...luego se puede volver a instalar así: 
+npm install
+8. Crear archivo
+babel.config.json
+9. Escribir al interior de babel.config.json
+{
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "edge": "17",
+            "firefox": "60",
+            "chrome": "67",
+            "safari": "11.1"
+          },
+          "useBuiltIns": "usage",
+          "corejs": "3.6.5",
+          "forceAllTransforms": true
+        }
+      ]
+    ]
+}	
+
+10.Crear directorio y archivo
+src/index.js 
+
+11. Finalmente, utilizar este comando para compilar:
+npx babel src -d lib
+
+
+12. Pegar lo siguinete para testeo en src/index.js
+for (let i = 0; i < 3; i++) {
+    console.log(i);
+    let log = '';
+    for (let i = 0; i < 3; i++) {
+        log += i;
+    }
+    console.log(log);
+}
+for (let i of [1, 2, 3, 4, 5]) {
+    console.log(i);
+}
+13. y nuevamente compilar utilizando el mismo comando
+npx babel src -d lib
+14. ver resultado en
+lib/index.js
