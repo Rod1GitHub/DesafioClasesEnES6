@@ -32,12 +32,15 @@ class Cliente {
     }
 
     calcularImpuesto() {
-        console.log((this._impuesto.montoBruto - this._impuesto.deducciones) * 0.21)
+        let resultado = (this._impuesto.montoBruto - this._impuesto.deducciones) * 0.21
+        console.log(resultado)
     }
 }
 
 // 3. Ejecución
 let impuestos2021 = new Impuestos(100, 40);
 let c1 = new Cliente('Rodrigo', impuestos2021);
-c1.calcularImpuesto();
-console.log(c1.calcularImpuesto())
+console.log(`Cliente: ${c1._nombre}`)
+console.log(`Ventas 2021: ${impuestos2021._ventas_monto_bruto_anual}`)
+console.log(`Deducciones 2021 : ${impuestos2021._deducciones}`)
+c1.calcularImpuesto()

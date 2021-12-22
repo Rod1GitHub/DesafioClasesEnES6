@@ -12,6 +12,7 @@ export default class Cliente {
     }
 
     calcularImpuesto() {
-        console.log((this._impuesto.montoBruto - this._impuesto.deducciones) * 0.21)
+        let resultado = (this._impuesto.montoBruto - this._impuesto.deducciones) * 0.21
+        console.log(resultado)
     }
 }
